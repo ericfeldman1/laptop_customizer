@@ -1,20 +1,19 @@
-import React, { Component } from 'react';
-import slugify from 'slugify';
+import React from 'react';
 
-class yourCartItem extends Component {
+class YourCartItem extends React.Component {
+  render() {
+    return(
 
-    render() {
-    return (
-        <div className="summary__option" key={this.props.featureHash}>
-          <div className="summary__option__label">{this.props.feature} </div>
-          <div className="summary__option__value">{this.props.selectedOption.name}</div>
-          <div className="summary__option__cost">
-            {this.props.USCurrencyFormat.format(this.props.selectedOption.cost)}
-          </div>
-        </div>
-      );
+      <div className="summary__option" key={this.props.featureHash}>
+      <div className="summary__option__label">{this.props.feature} </div>
+      <div className="summary__option__value">{this.props.selectedOption.name}</div>
+      <div className="summary__option__cost">
+        {this.props.USCurrencyFormat.format(this.props.selectedOption.cost)}
+      </div>
+    </div>
 
+    )
+  }
 }
-}
 
-export default yourCartItem
+export default YourCartItem

@@ -1,26 +1,26 @@
-import React, { Component } from 'react';
-import yourCartItem from './yourCartItem';
-import slugify from 'slugify';
+import React from 'react';
+import YourCartItem from './YourCartItem'
 
-class yourCartList extends Component {
+class YourCartList extends React.Component {
+  render() {
+    return(
 
-    render() {
-    const summary = Object.keys(this.state.selected).map((feature, idx) => {
+      Object.keys(this.props.selected).map((feature, idx) => {
         const featureHash = feature + '-' + idx;
-        const selectedOption = this.state.selected[feature];
+        const selectedOption = this.props.selected[feature];
   
         return (
-            <yourCartItem
-            featureHash={featureHash}
-            feature={feature}
-            // should this be selectedOption.name + .cost?
-            selectedOption={selectedOption}
-            USCurrencyFormat={USCurrencyFormat}
-
-            />
+          <YourCartItem 
+          featureHash={featureHash}
+          feature={feature}
+          USCurrencyFormat={this.props.USCurrencyFormat}
+          selectedOption={selectedOption}
+          />
         );
-      });
+      })
 
+    )
+  }
 }
-}
-export default yourCartList
+
+export default YourCartList
