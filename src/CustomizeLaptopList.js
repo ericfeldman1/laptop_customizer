@@ -7,7 +7,6 @@ class CustomizeLaptopList extends React.Component {
   render() {
     return(
 
-      // const features = 
       Object.keys(this.props.features).map((feature, idx) => {
         const featureHash = feature + '-' + idx;
         const options = this.props.features[feature].map(item => {
@@ -30,17 +29,13 @@ class CustomizeLaptopList extends React.Component {
         });
   
         return (
+          <form className="main__form">
           <CustomizeLaptopItem 
           feature = {feature}
           featureHash={featureHash}
           options={options}
           />
-          // <fieldset className="feature" key={featureHash}>
-          //   <legend className="feature__name">
-          //     <h3>{feature}</h3>
-          //   </legend>
-          //   {options}
-          // </fieldset>
+        </form>
         );
       })
 
