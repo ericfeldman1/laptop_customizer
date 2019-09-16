@@ -11,6 +11,7 @@ class YourCartList extends React.Component {
   
         return (
           <YourCartItem 
+          key={featureHash}
           featureHash={featureHash}
           feature={feature}
           USCurrencyFormat={this.props.USCurrencyFormat}
