@@ -5,14 +5,14 @@ import slugify from 'slugify';
 
 class CustomizeLaptopList extends React.Component {
   render() {
-    return(
+    return (
 
       Object.keys(this.props.features).map((feature, idx) => {
         const featureHash = feature + '-' + idx;
-        const options = this.props.features[feature].map(item => {
+        const options = this.props.features[feature].map((item,index) => {
           const itemHash = slugify(JSON.stringify(item));
           return (
-            <div key={itemHash} className="feature__item">
+            <div key={index} className="feature__item">
               <input
                 type="radio"
                 id={itemHash}
@@ -27,15 +27,15 @@ class CustomizeLaptopList extends React.Component {
             </div>
           );
         });
-  
+
         return (
-          <form className="main__form">
-          <CustomizeLaptopItem 
-          feature = {feature}
-          featureHash={featureHash}
-          options={options}
-          />
-        </form>
+          <form className="main__form" key={featureHash}>
+            <CustomizeLaptopItem
+              feature={feature}
+              featureHash={featureHash}
+              options={options}
+            />
+          </form>
         );
       })
 
